@@ -11,7 +11,8 @@ Project manager: Thomas
 
 Contact me at UnfocusedCrane5@gmail.com if you need information on this github repository
 
-Brief Description of goals for week1:
+
+/h1Week one Goals:/h1
 
 All- Working on Plan due friday 
 
@@ -22,3 +23,6 @@ Tom/Thomas- Need to be thinking about the chassis and first draft
 Harry/Arnold- Devaloping code to move robot forward and processing images
 
 James- Managing github and devaloping code for network gate
+
+
+Week two goals:
