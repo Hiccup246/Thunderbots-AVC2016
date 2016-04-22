@@ -12,7 +12,7 @@ Project manager: Thomas
 Contact me at UnfocusedCrane5@gmail.com if you need information on this github repository
 
 
-/h1Week one Goals:/h1
+Week one Goals:
 
 All- Working on Plan due friday 
 
