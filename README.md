@@ -11,7 +11,7 @@ Project manager: Thomas
 
 Contact me at UnfocusedCrane5@gmail.com if you need information on this github repository
 
-### H3 Week one Goals:
+### Week one Goals:
 
 ~~All- Working on Plan due friday~~
 
@@ -26,10 +26,12 @@ Harry/Arnold- Devaloping code to move robot forward and processing images
 Summary-For the first week we achieved all our goals except getting the code for the robot moving forward
 at this point i am unsure if Arnold or Harry have written code and not uploaded to github or have simply not started
 
-### H3 We are excluding the mid trimester break
+### We are excluding the mid trimester break
 
-### H3 Week two goals:
+### Week two goals:
 Harry, Arnold and James produce code for Quadrant one
 Thomas and Tom finalise chassis and chassis design
+
+### Week 3 goals:
 
 
