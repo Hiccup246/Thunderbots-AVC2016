@@ -42,9 +42,17 @@ at this point i am unsure if Arnold or Harry have written code and not uploaded 
 ### We are excluding the mid trimester break
 
 ### Week two goals:
-Harry, Arnold and James produce code for Quadrant one
-Thomas and Tom finalise chassis and chassis design
+* Harry, Arnold and James produce code for Quadrant one
+* James works on network code
+* Thomas and Tom finalise chassis and chassis design
 
 ### Week 3 goals:
+* Harry and Arnold writing code for quadrant 2
 
+* James working on network gate and finalising network code
 
+* Thomas and Tom working on chassis touch ups
+
+* Team meeting
+
+* *Whole team looking at code performing touch-ups and debugging
