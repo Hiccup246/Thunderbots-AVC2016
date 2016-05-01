@@ -11,6 +11,19 @@ Project manager: Thomas
 
 Contact me at UnfocusedCrane5@gmail.com if you need information on this github repository
 
+## Team Milestones
+
+|Week|                     Milestones                      |
+|----|-----------------------------------------------------|
+| 1  |~~To complete the team plan~~                            |
+| 2  |To have the robot follow a line(curved or straight) and have the chassis built  |
+| 3  |To navigate through qadrant 2 and open the network gate|
+| 4  |To Navigate through quadrant 3|
+| 5  |To navigate through quadrant 4|
+
+
+
+
 ### Week one Goals:
 
 ~~All- Working on Plan due friday~~
