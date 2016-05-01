@@ -44,7 +44,7 @@ Harry/Arnold- Devaloping code to move robot forward and processing images
 
 ~~James- Managing github and devaloping code for network gate~~
 
-## Week 1 review
+### Week 1 review
 * For the first week we achieved all our goals except getting the code for the robot moving forward
 at this point i am unsure if Arnold or Harry have written code and not uploaded to github or have simply not started. A team
 meeting is in order to see what work has been done by who.
@@ -55,7 +55,8 @@ meeting is in order to see what work has been done by who.
 * Harry, Arnold and James produce code for Quadrant one
 * James works on network code
 * Thomas and Tom finalise chassis and chassis design
-### Week 2 review
+
+###Week 2 review
 
 ## Week 3 goals:
 * Harry and Arnold writing code for quadrant 2
