@@ -1,5 +1,15 @@
 //This is the Quadrant 1 code
 
+//Take a picture, which gives you a 320x240 array of RGB values, use get_pixel() to find out the rgb value and list it in an array
+//If the result is greater than 128, then it will equal 1 in the next array which we can assume it is a white colour, otherwise it will equal 0 which is black.
+//The 1's represent a white colour, and 0's represent a black colour in this array.
+//Make another array starting from -160 on the left, to 160 on the right.
+//Make another array, which will equal the product of the 2nd and 3rd array. The results of this array will equal a certain number from -160 to 160 or 0.
+//Add up all of the values from the fourth array, which will equal the error line value.
+//Based on the error line value, rotate the wheels with this equation:
+//Left Mot=base_speed+Ke
+//Right Mot=base_speed-Ke
+//K= a constant (any number)
 
 
 //warning this code does not build is simply a list of functions
