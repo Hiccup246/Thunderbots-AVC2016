@@ -53,10 +53,13 @@ meeting is in order to see what work has been done by who.
 
 ## Week two goals:
 * Harry, Arnold and James produce code for Quadrant one
-* James works on network code
-* Thomas and Tom finalise chassis and chassis design
+* ~~James works on network code~~
+* ~~Thomas and Tom finalise chassis and chassis design~~
 
 ###Week 2 review
+* James has finished network code and is ready to test it
+* Tom and Thomas have finalised chassis
+* Only goal for week 3 which was not met was to completet the code for quadrant one
 
 ## Week 3 goals:
 * Harry and Arnold writing code for quadrant 2
