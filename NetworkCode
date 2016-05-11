@@ -11,11 +11,18 @@ extern "C" int send_to_server( char message[7]);
 extern "C" int receive_from_server(char message[7]);
 
 int main (){
+
 init(0);//initialises all the hardware
+
 connect_to_server("130.195.6.196", 1024);//inside brackets is IP address of the gate
+
 send_to_server("please");//requesting the password
+
 char password[7];//creating a variable for the password
-password = receive_from_server("please"); //getting the actual password and storing it in variable password
+
+receive_from_server(password); //getting the actual password and storing it in variable password
+printf("s",password);
+
 send_to_server(password);
 
 return 0;}
