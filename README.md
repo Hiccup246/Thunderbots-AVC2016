@@ -59,6 +59,7 @@ meeting is in order to see what work has been done by who.
 ###Week 2 review
 * James has finished network code and is ready to test it
 * Tom and Thomas have finalised chassis
+* Harry and Arnold have finished writing the quadrant 1 code which is ready for testing
 * Only goal for week 3 which was not met was to completet the code for quadrant one
 
 ## Week 3 goals:
