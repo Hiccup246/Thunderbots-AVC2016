@@ -21,9 +21,10 @@ send_to_server("please");//requesting the password
 char password[7];//creating a variable for the password
 
 receive_from_server(password); //getting the actual password and storing it in variable password
-printf("s",password);
+printf("%s",password);
 
 send_to_server(password);
 
 return 0;}
+
 
