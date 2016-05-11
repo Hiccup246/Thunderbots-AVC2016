@@ -40,7 +40,7 @@ Contact me at UnfocusedCrane5@gmail.com if you need information on this github r
 
 ~~Tom/Thomas- Need to be thinking about the chassis and first draft~~
 
-Harry/Arnold- Devaloping code to move robot forward and processing images
+~~Harry/Arnold- Devaloping code to move robot forward and processing images~~
 
 ~~James- Managing github and devaloping code for network gate~~
 
@@ -59,7 +59,7 @@ meeting is in order to see what work has been done by who.
 ###Week 2 review
 * James has finished network code and is ready to test it
 * Tom and Thomas have finalised chassis
-* Harry and Arnold have finished writing the quadrant 1 code which is ready for testing
+* Harry and Arnold have finished writing the quadrant 1 code which is now ready for testing
 * Only goal for week 3 which was not met was to completet the code for quadrant one
 
 ## Week 3 goals:
