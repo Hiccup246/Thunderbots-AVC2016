@@ -49,7 +49,9 @@ int main (){
         leftSpeed = baseSpeed - k*sumError; // sumError should be 0 for the robot to go in a straight line
         rightSpeed = baseSpeed + k*sumError;
 
-        set_motor(1, leftSpeed);
+        // have to fix row out of range error
+
+        set_motor(1, leftSpeed); // Motor 1 is left motor
         set_motor(2, rightSpeed);
         Sleep(0, 100000);
         counter++;
