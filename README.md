@@ -61,13 +61,14 @@ meeting is in order to see what work has been done by who.
 * Tom and Thomas have finalised chassis
 * Harry and Arnold have finished writing the quadrant 1 code which is now ready for testing
 * Only goal for week 3 which was not met was to completet the code for quadrant one
+* Behind due to inability to test code as chassis is not done
 
 ## Week 3 goals:
-* Harry and Arnold writing code for quadrant 2
+* Harry,Arnold and James Writing code to get up to b- but preferably finish line and start on maze
 
-* James working on network gate and finalising network code
+* Harry,Arnold and James Testing all code
 
-* Thomas and Tom working on chassis touch ups
+* Thomas and Tom FINISH CHASSIS ASAP
 
 * Team meeting
 
