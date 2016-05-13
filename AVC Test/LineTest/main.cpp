@@ -10,7 +10,7 @@ extern "C" int take_picture();
 int main (){
     init_hardware();
     int width = 320;
-    int height = 240;
+    int height = 480;
     int brightnessArray[width];
     int threshold = 128;
     int generatedArray[width];
@@ -18,7 +18,7 @@ int main (){
     int leftSpeed=50;
     int rightSpeed=50;
     int baseSpeed = 50;
-    int k=0.1; // constant
+    double k=0.1; // constant
 
     // an array starting from -160 to 160
     int number = -160;
@@ -28,7 +28,8 @@ int main (){
     }
 
     take_picture();
-    while(true){
+    int counter = 0;
+    while(counter<10){
         int sumError=0;
         take_picture();
         for(int i=0; i<width; i++){
@@ -51,6 +52,7 @@ int main (){
         set_motor(1, leftSpeed);
         set_motor(2, rightSpeed);
         Sleep(0, 100000);
+        counter++;
     }
     return 0;
 }
