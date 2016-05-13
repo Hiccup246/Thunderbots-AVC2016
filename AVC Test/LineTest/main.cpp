@@ -33,7 +33,7 @@ int main (){
         int sumError=0;
         take_picture();
         for(int i=0; i<width; i++){
-            char colour = get_pixel(height/2, i, 3);
+            char colour = get_pixel(i, height/2, 3);
             if(colour > threshold){
                 brightnessArray[i] = 1;
             } else {
