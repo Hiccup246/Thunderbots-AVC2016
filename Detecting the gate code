@@ -2,7 +2,6 @@
 #include <time.h>
 extern "C" int InitHardware();
 extern "C" int ReadAnalog(int chd_adc);
-extern "C" int Sleep(int sec, int usec);
 int main(){
     InitHardware();
     int adc_reading;
