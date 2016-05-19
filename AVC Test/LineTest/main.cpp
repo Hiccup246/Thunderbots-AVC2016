@@ -14,15 +14,16 @@ int main (){
     int brightnessArray[width];
     int threshold = 128;
     int generatedArray[width];
-    int errorArray[width];
+    int errorArray=0;
     int leftSpeed=50;
     int rightSpeed=50;
     int baseSpeed = 50;
+    int 0count=0;
     double k=0.1; // constant
 
     // an array starting from -160 to 160
     int number = -160;
-    for(int y=0; y<width; y++){
+    for(int y=0; y<width/2; y++){
         generatedArray[y] = number;
         number++;
     }
@@ -38,14 +39,16 @@ int main (){
                 brightnessArray[i] = 1;
             } else {
                 brightnessArray[i] = 0;
+                0count++;
             }
             // brightness * genArray
-            errorArray[i] = brightnessArray[i] * generatedArray[i];
-            sumError+=errorArray[i];
+            errorArray += ((brightnessArray[i] * generatedArray[i)/0count);
+            
         }
         // calculate speed for left and right motors k has to be small like 0.1
         // leftmotor = baseSpeed - k*sumError
         // rightmotor = baseSpeed + k*sumError
+        sumError+=errorArray;
         leftSpeed = baseSpeed - k*sumError; // sumError should be 0 for the robot to go in a straight line
         rightSpeed = baseSpeed + k*sumError;
 
