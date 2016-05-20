@@ -1,0 +1,101 @@
+# include <stdio.h>
+# include <time.h>
+
+extern "C" int init_hardware ();
+extern "C" int init(int d_lev);
+extern "C" int Sleep ( int sec , int usec );
+extern "C" int set_motor ( int motor, int speed );
+extern "C" char get_pixel(int x, int y, int num);
+extern "C" int take_picture();
+
+#define WIDTH 320
+#define HEIGHT 240
+
+int main (){
+    init_hardware();
+    // init(0);
+
+    int width = 320;
+    int height = 240;
+    int brightnessArray[WIDTH];
+    int threshold = 150;
+    int generatedArray[WIDTH];
+    int errorArray[WIDTH];
+    int baseSpeed = 40;
+    int leftSpeed=baseSpeed;
+    int rightSpeed=baseSpeed;
+
+    double k=0.4; // constant
+
+    // an array starting from -160 to 160
+    int number = -160;
+    for(int y=0; y<width; y++){
+        generatedArray[y] = number;
+        number++;
+    }
+    int counter = 0;
+    int zeroCount = 0;
+    while(counter<500){
+        int sumError=0;
+        take_picture();
+        for(int i=0; i<width; i++){
+            char colour = get_pixel(i, height/2, 3);
+            if(colour > threshold){
+                brightnessArray[i] = 1;
+            } else {
+                brightnessArray[i] = 0;
+                zeroCount++;
+            }
+            // brightness * genArray
+            //errorArray[i] = brightnessArray[i] * generatedArray[i];
+            //sumError+=errorArray[i]/zeroCount;
+            sumError += brightnessArray[i] * generatedArray[i]/zeroCount;
+        }
+        // calculate speed for left and right motors k has to be small like 0.1
+        // leftmotor = baseSpeed - k*sumError
+        // rightmotor = baseSpeed + k*sumError
+        bool check=false;
+        for(int h=0;h<320;h++){
+        if((brightnessArray[h] * generatedArray[h])==0){
+        check=false;
+        }else{
+        check=true;
+        continue;
+        }
+        }
+        if(check==true){
+        leftSpeed = baseSpeed + k*sumError; // sumError should be 0 for the robot to go in a straight line
+        rightSpeed = baseSpeed - k*sumError;
+
+        if(leftSpeed > 255){
+            leftSpeed = 255;
+        } else if(leftSpeed < -255){
+            leftSpeed = -255;
+        }
+        if(rightSpeed > 255){
+            rightSpeed = 255;
+        } else if(leftSpeed < -255){
+            rightSpeed = -255;
+        }
+
+        set_motor(1, leftSpeed); // Motor 1 is left motor
+        set_motor(2, rightSpeed);
+        Sleep(0, 500000);
+        counter++;
+        if(counter==500){
+            set_motor(1, 0); // Motor 1 is left motor
+            set_motor(2, 0);
+        }
+    }
+    else{
+    int countback=0;
+    while(countback<5){
+    set_motor(1,-baseSpeed+5);
+    set_motor(2,-baseSpeed);
+    countback++;
+    }
+
+    }
+    }
+    return 0;
+}
