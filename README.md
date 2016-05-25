@@ -68,9 +68,20 @@ meeting is in order to see what work has been done by who.
 
 * Harry,Arnold and James Testing all code
 
-* Thomas and Tom FINISH CHASSIS ASAP
+* ~~Thomas and Tom FINISH CHASSIS ASAP~~
 
-* Team meeting
+* ~~Team meeting~~
 
 * Whole team looking at code performing touch-ups and debugging
-### Week 3 review 
+### Week 3 review
+* After extensive mis-communications the hardware has finally been finished
+* however the robot can still not complete quadrant 2 and 3. We have tested our code and
+* are %100 confident that it will make it through quadant 1. Overall a very productive week.
+* i will mention that because only two weeks remain the presure is on.
+*
+## Week 4 goals:
+*Complete quadrants 2 and 3
+*If time permits attemp quadrant 4
+*Test all code and make sure it is presentable in week 5
+*Write code to navigate junctions
+*Write code to make 90degree turns and navigate dead ends
