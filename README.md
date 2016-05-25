@@ -78,7 +78,7 @@ meeting is in order to see what work has been done by who.
 * however the robot can still not complete quadrant 2 and 3. We have tested our code and
 * are %100 confident that it will make it through quadant 1. Overall a very productive week.
 * i will mention that because only two weeks remain the presure is on.
-*
+
 ## Week 4 goals:
 *Complete quadrants 2 and 3
 *If time permits attemp quadrant 4
