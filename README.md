@@ -81,7 +81,11 @@ meeting is in order to see what work has been done by who.
 
 ## Week 4 goals:
 *Complete quadrants 2 and 3
+
 *If time permits attemp quadrant 4
+
 *Test all code and make sure it is presentable in week 5
+
 *Write code to navigate junctions
+
 *Write code to make 90degree turns and navigate dead ends
