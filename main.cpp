@@ -72,23 +72,74 @@ int main (){
             sumError += errorArray[i];
         }
 	derivative = ((sumError-previousError)/0.005);
+	
+	
+	
+        //90 DEGREE TURNS
+        
+        //Right and left 90 Degree turn
+	//int nine=0;
+	//bool 90R=true;
+	//bool 90L=true;
+	
+        //if((sumError)>6000){         //sum should be large as the right hand side(0-160) will be white
+        //90R=true;
+        //}
+        //else{
+        //90R=false;	
+        //}
+        //if((sumError)<-6000){    //sum should be very small as the left hand side(0 to -160) will be white
+        //90L=true;	
+        //}
+        //else{
+        //90L=false; 	
+        //}
+        
+        
+        //if(90R){
+        //set_motor(0,20);	
+        //set_motor(1,-20;	
+        //}
+        
+        //if(90L){
+        //set_motor(0,-20);
+        //set_motot(1,20);
+        //}
+        
+        
+	
+	
+	
 
+	
+	
+	
+	
+        
         // calculate speed for left and right motors k has to be small like 0.1
         bool check=true;
-        //bool checkintersection=true;
-        //int intcount=0;
+        bool checkintersection=true;
+        int intcount=0;
+        //INTERSETION CODE
+        
+        
         //for(int in=0;in<WIDTh;in++){
-        //if((birghtnessArray[h])==1){
-        //check=true;
+        //if((birghtnessArray[h])==1){    //Goes through array and because the camera should read all white the sum should have very few 0's
+        //checkintersection=true;                     //if it counts 4 blacks then its not an intersection
         //}
         //else if{intcount<4){
-        //check=true;
+        //checkintersection=true;
         //incount++
         //}
         //else if(intcount==4){
-        //check=false;
+        //checkintersection=false;
         //break;
         //}
+        //}
+        
+        //if(checkintersection){
+     	//set_motor(0,45)
+        //set_motor(1,45)
         //}
         
         
@@ -105,6 +156,16 @@ int main (){
             check=true;
             break;
             }
+            if ((birghtnessArray[h])==1){
+            	checkintersection=true;
+            }else if{intcount<4){
+            checkintersection=true;
+             incount++
+             }
+             else if(intcount==4){
+             checkintersection=false;
+             break;
+              }
         //continue;
         }
 
