@@ -75,15 +75,33 @@ int main (){
 
         // calculate speed for left and right motors k has to be small like 0.1
         bool check=true;
+        //bool checkintersection=true;
+        //int intcount=0;
+        //for(int in=0;in<WIDTh;in++){
+        //if((birghtnessArray[h])==1){
+        //check=true;
+        //}
+        //else if{intcount<4){
+        //check=true;
+        //incount++
+        //}
+        //else if(intcount==4){
+        //check=false;
+        //break;
+        //}
+        //}
+        
+        
+    }//~~~~~unsure what this is for/what it closes off
         for(int h=0;h<WIDTH;h++){
             if((brightnessArray[h])==0){
             check=false;
             }
-            else if(countrev<3){
-            check=true;
+            else if(countrev<2){
+            check=false;//this used to be true, changed it to false in case of the last error vlaue.
             countrev+=1;
             }
-            else if (countrev==3){
+            else if (countrev==2){
             check=true;
             break;
             }
