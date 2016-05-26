@@ -1,6 +1,9 @@
 # Thunderbots-AVC2016
 This is the repository for Team Thunderbots in the ENGR101 AVC challenge
 
+
+# URGENT WORK NEEDED!! THIS IS THE TIME TO PANIC
+
 Lead software developer: Arnold 
 
 Software developer and networking: Harry, James
@@ -79,9 +82,18 @@ meeting is in order to see what work has been done by who.
 * are %100 confident that it will make it through quadant 1. Overall a very productive week.
 * i will mention that because only two weeks remain the presure is on.
 
+## Friday Night Goals
+* Make code to navigate intersections
+* Make code to navigate 90 degree turns
+* Make code so that it turns 180 degrees at a dead end
+* Make sure it can semi reliably navigate the Quadrants 1,2 and 3.
+
+
 ## Week 4 goals:
 * Complete quadrants 2 and 3
 * If time permits attemp quadrant 4
-* Test all code and make sure it is presentable in week 5
 * Write code to navigate junctions
 * Write code to make 90degree turns and navigate dead ends
+* Test all code and make sure it is presentable in week 5
+
+
