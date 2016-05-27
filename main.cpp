@@ -36,6 +36,12 @@ int main (){
     int previousError = 0;
     int derivative = 0;
     int kd = 0.005;
+    bool checkintersection=true;
+    int intcount=0;
+    int sumError=0;
+    int incount=0;
+    bool right90=true;
+    bool left90=true;
     //network
     bool gate = false;
     char ip[14] = "130.195.6.196";
@@ -54,7 +60,7 @@ int main (){
     int counter = 0;
     int zeroCount = 0;
     while(counter < 2000){
-        int sumError=0;
+        sumError=0;
         take_picture();
         for(int i=0; i<WIDTH; i++){
             char colour = get_pixel(i, HEIGHT/2, 3);
@@ -65,64 +71,53 @@ int main (){
             }
             // brightness * genArray
             errorArray[i] = brightnessArray[i] * generatedArray[i];
-	    
+
 	    /*if(counter%2==1){
 		lagErrorArray[i] = errorArray[i];
 	    }*/
             sumError += errorArray[i];
         }
-	derivative = ((sumError-previousError)/0.005);
-	
-	
-	
-        //90 DEGREE TURNS
-        
-        //Right and left 90 Degree turn
-	//int nine=0;
-	//bool 90R=true;
-	//bool 90L=true;
-	
-        //if((sumError)>6000){         //sum should be large as the right hand side(0-160) will be white
-        //90R=true;
-        //}
-        //else{
-        //90R=false;	
-        //}
-        //if((sumError)<-6000){    //sum should be very small as the left hand side(0 to -160) will be white
-        //90L=true;	
-        //}
-        //else{
-        //90L=false; 	
-        //}
-        
-        
-        //if(90R){
-        //set_motor(0,20);	
-        //set_motor(1,-20;	
-        //}
-        
-        //if(90L){
-        //set_motor(0,-20);
-        //set_motot(1,20);
-        //}
-        
-        
-	
-	
-	
+        derivative = ((sumError-previousError)/0.005);
+        printf("Sum error: %d",sumError);
 
-	
-	
-	
-	
-        
+
+        //90 DEGREE TURNS
+
+        //Right and left 90 Degree turn
+        //int nine=0;
+
+        if(sumError>6000){         //sum should be large as the right hand side(0-160) will be white
+            right90=true;
+        }else{
+            right90=false;
+        }
+        if(sumError<-6000){    //sum should be very small as the left hand side(0 to -160) will be white
+            left90=true;
+        }else{
+            left90=false;
+        }
+
+        if(right90){
+            while(sumError>0){
+                set_motor(0,baseSpeed);
+                set_motor(1,-baseSpeed);
+            }
+        }
+
+        if(left90){
+            while(sumError<0){
+                set_motor(0,-baseSpeed);
+                set_motor(1,baseSpeed);
+            }
+        }
+
+
+
         // calculate speed for left and right motors k has to be small like 0.1
-        bool check=true;
-        bool checkintersection=true;
-        int intcount=0;
-        //INTERSETION CODE
-        
-        
+
+        //INTERSECTION CODE
+
+
         //for(int in=0;in<WIDTh;in++){
         //if((birghtnessArray[h])==1){    //Goes through array and because the camera should read all white the sum should have very few 0's
         //checkintersection=true;                     //if it counts 4 blacks then its not an intersection
@@ -136,36 +131,33 @@ int main (){
         //break;
         //}
         //}
-        
+
         //if(checkintersection){
      	//set_motor(0,45)
         //set_motor(1,45)
         //}
-        
-        
-    }//~~~~~unsure what this is for/what it closes off
+
+
+    //}//~~~~~unsure what this is for/what it closes off
         for(int h=0;h<WIDTH;h++){
             if((brightnessArray[h])==0){
-            check=false;
+                check=false;
+            }else if(countrev<2){
+                check=false;//this used to be true, changed it to false in case of the last error vlaue.
+                countrev+=1;
+            }else if (countrev==2){
+                check=true;
+                break;
             }
-            else if(countrev<2){
-            check=false;//this used to be true, changed it to false in case of the last error vlaue.
-            countrev+=1;
-            }
-            else if (countrev==2){
-            check=true;
-            break;
-            }
-            if ((birghtnessArray[h])==1){
+            if ((brightnessArray[h])==1){
             	checkintersection=true;
-            }else if{intcount<4){
-            checkintersection=true;
-             incount++
-             }
-             else if(intcount==4){
-             checkintersection=false;
-             break;
-              }
+            }else if(intcount<4){
+                checkintersection=true;
+                incount++;
+            }else if(intcount==4){
+                checkintersection=false;
+                break;
+            }
         //continue;
         }
 
