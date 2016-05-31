@@ -1,0 +1,12 @@
+# include <stdio.h>
+# include <time.h>
+
+extern "C" int init_hardware ();
+extern "C" int Sleep ( int sec , int usec );
+extern "C" int set_motor ( int motor, int speed );
+extern "C" char get_pixel(int x, int y, int num);
+extern "C" int take_picture();
+
+int main(){
+
+}

@@ -2,62 +2,242 @@
 # include <time.h>
 
 extern "C" int init_hardware ();
+extern "C" int init(int d_lev);
 extern "C" int Sleep ( int sec , int usec );
 extern "C" int set_motor ( int motor, int speed );
 extern "C" char get_pixel(int x, int y, int num);
 extern "C" int take_picture();
+extern "C" int display_picture(int delay_sec,int delay_usec);
+extern "C" int open_screen_stream();
+extern "C" int update_screen();
+//network
+extern "C" int read_analog(int ch_adc);
+extern "C" int connect_to_server( char server_addr[14],int port);
+extern "C" int send_to_server(char message[7]);
+extern "C" int receive_from_server(char message[7]);
+
+
+#define WIDTH 320
+#define HEIGHT 240
 
 int main (){
     init_hardware();
-    int width = 320;
-    int height = 480;
-    int brightnessArray[width];
-    int threshold = 128;
-    int generatedArray[width];
-    int errorArray=0;
-    int leftSpeed=50;
-    int rightSpeed=50;
-    int baseSpeed = 50;
-    int 0count=0;
-    double k=0.1; // constant
+    // init(0);
+
+    int brightnessArray[WIDTH];
+    int threshold = 120;
+    int generatedArray[WIDTH];
+    int errorArray[WIDTH];
+    int lagErrorArray[WIDTH];
+    int baseSpeed = 35;
+    int leftSpeed=baseSpeed;
+    int rightSpeed=baseSpeed;
+    bool check=true;
+    int countrev=0;
+    int previousError = 0;
+    int derivative = 0;
+    double kd = 0.0;
+    bool checkintersection=true;
+    int intcount=0;
+    int sumError=0;
+    int incount=0;
+    bool right90=true;
+    bool left90=true;
+    //network
+    bool gate = false;
+    char ip[14] = "130.195.6.196";
+    char message[7];
+    int ir_sensor = read_analog(0);
+
+    double k=0.0012; // constant
 
     // an array starting from -160 to 160
     int number = -160;
-    for(int y=0; y<width/2; y++){
+    for(int y=0; y<WIDTH+1; y++){
         generatedArray[y] = number;
         number++;
     }
 
-    take_picture();
     int counter = 0;
-    while(counter<10){
-        int sumError=0;
+    int zeroCount = 0;
+    while(counter < 2000){
+        sumError=0;
         take_picture();
-        for(int i=0; i<width; i++){
-            char colour = get_pixel(i, height/2, 3);
+	//display_picture(0.5,0);
+	//open_screen_stream();
+	//update_screen();
+        for(int i=0; i<WIDTH; i++){
+            char colour = get_pixel(i, HEIGHT/2, 3);
             if(colour > threshold){
                 brightnessArray[i] = 1;
             } else {
                 brightnessArray[i] = 0;
-                0count++;
             }
-            // brightness * genArray
-            errorArray += ((brightnessArray[i] * generatedArray[i)/0count);
-            
+            errorArray[i] = brightnessArray[i] * generatedArray[i];
+
+	    /*if(counter%2==1){
+		lagErrorArray[i] = errorArray[i];
+	    }*/
+	    if(counter==1){
+		previousError = sumError;
+	    }
+            sumError += errorArray[i];
         }
+        derivative = ((sumError-previousError)/0.005);
+       // printf("Sum error: %d\n",sumError);
+
+
+        //90 DEGREE TURNS
+
+        //Right and left 90 Degree turn
+        //int nine=0;
+	/*
+	int turnCounter = 0;
+        if(sumError>10000){         //sum should be large as the right hand side(0-160) will be white
+            right90=true;
+        }else{
+            right90=false;
+        }
+        if(sumError<-10000){    //sum should be very small as the left hand side(0 to -160) will be white
+            left90=true;
+        }else{
+            left90=false;
+        }
+
+        if(right90){
+            while(turnCounter<25){
+                set_motor(0,baseSpeed);
+                set_motor(1,-baseSpeed);
+		turnCounter++;
+            }
+        }
+
+        if(left90){
+            while(sumError<25){
+                set_motor(0,-baseSpeed);
+                set_motor(1,baseSpeed);
+		turnCounter++;
+            }
+        }
+	turnCounter=0;
+	*/
+
+
         // calculate speed for left and right motors k has to be small like 0.1
-        // leftmotor = baseSpeed - k*sumError
-        // rightmotor = baseSpeed + k*sumError
-        sumError+=errorArray;
-        leftSpeed = baseSpeed - k*sumError; // sumError should be 0 for the robot to go in a straight line
-        rightSpeed = baseSpeed + k*sumError;
 
-        // have to fix row out of range error
+        //INTERSECTION CODE
 
-        set_motor(1, leftSpeed); // Motor 1 is left motor
-        set_motor(2, rightSpeed);
-        Sleep(0, 100000);
-        counter++;
+
+        //for(int in=0;in<WIDTh;in++){
+        //if((birghtnessArray[h])==1){    //Goes through array and because the camera should read all white the sum should have very few 0's
+        //checkintersection=true;                     //if it counts 4 blacks then its not an intersection
+        //}
+        //else if{intcount<4){
+        //checkintersection=true;
+        //incount++
+        //}
+        //else if(intcount==4){
+        //checkintersection=false;
+        //break;
+        //}
+        //}
+
+        //if(checkintersection){
+     	//set_motor(0,45)
+        //set_motor(1,45)
+        //}
+
+
+    //}//~~~~~unsure what this is for/what it closes off
+        for(int h=0;h<WIDTH;h++){
+            if((brightnessArray[h])==0){
+                check=false;
+            }else if(countrev<4){
+                check=false;//this used to be true, changed it to false in case of the last error vlaue.
+                countrev++;
+            }else if (countrev==4){
+                check=true;
+                break;
+            }
+            /*if ((brightnessArray[h])==1){
+            	checkintersection=true;
+            }else if(intcount<4){
+                checkintersection=true;
+                incount++;
+            }else if(intcount==4){
+                //checkintersection=false;
+                break;
+            }*/
+        //continue;
+        }
+
+        if(check==true){
+            leftSpeed = baseSpeed + (k*sumError)+(kd*derivative); // sumError should be 0 for the robot to go in a straight line
+            rightSpeed = baseSpeed - (k*sumError)-(kd*derivative);
+	    /* if(leftSpeed<baseSpeed){
+		leftSpeed = 0
+	    } else if(rightSpeed<baseSpeed){
+		rightSpeed = 0;
+	    }
+		*/
+            if(leftSpeed > 255){
+                leftSpeed = 255;
+            }
+            else if(leftSpeed < -255){
+                leftSpeed = -255;
+            }
+            if(rightSpeed > 255){
+                rightSpeed = 255;
+            } else if(leftSpeed < -255){
+                rightSpeed = -255;
+            }/*
+	    if(sumError>6000 || sumError<-6000){
+		set_motor(1, baseSpeed);
+		set_motor(2, baseSpeed);
+	    }*/
+
+	    if(sumError==0 && previousError<0){
+		leftSpeed = 0;
+		rightSpeed = baseSpeed;
+	    }
+	    else if(sumError==0 && previousError>0){
+		leftSpeed = baseSpeed;
+		rightSpeed = 0;
+	    }
+	    else {
+           	set_motor(1, leftSpeed); // Motor 1 is left motor//left
+            	set_motor(2, rightSpeed);//right
+	    }
+            printf("Left Speed = %d, Right Speed =%d\n", leftSpeed, rightSpeed);
+	    printf("Sum error: %d\n",sumError);
+            Sleep(0, 50000);
+            counter++;
+            if(counter==1000){
+                set_motor(1, leftSpeed); // Motor 1 is left motor
+                set_motor(2, rightSpeed);
+            }
+        } else {
+            //int countback=0;
+            //while(countback<4){
+            set_motor(1,-baseSpeed);
+            set_motor(2,-baseSpeed);
+            //Sleep(0,5000000);
+            //countback++;
+            //}
+        }
+        if(gate==false){ // && ir_sensor>50?
+            printf("%d", ir_sensor);
+            set_motor(1, 0);
+            set_motor(2, 0);
+            if(ir_sensor > 1){
+                send_to_server("Please");
+                receive_from_server(message);
+                send_to_server(message);
+                gate = true;
+            }
+        //might be buggy and need to double check
+        printf("%s", message);
+        }
     }
     return 0;
 }
