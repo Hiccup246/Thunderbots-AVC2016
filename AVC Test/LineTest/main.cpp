@@ -12,7 +12,7 @@ extern "C" int open_screen_stream();
 extern "C" int update_screen();
 //network
 extern "C" int read_analog(int ch_adc);
-extern "C" int connect_to_server( char server_addr[14],int port);
+extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[7]);
 extern "C" int receive_from_server(char message[7]);
 
@@ -53,7 +53,7 @@ int main (){
     char ip[14] = "130.195.6.196";
     char message[7];
     int ir_sensor = read_analog(0);
-    connect_to_server(ip,1024);
+    //connect_to_server(ip,1024);
 
     double k=0.0008; // constant
 
@@ -76,7 +76,7 @@ int main (){
 	sumError=0;
         for(int i=0; i<WIDTH; i++){
             char colour = get_pixel(i, HEIGHT/2, 3);
-            if(colour > threshold){
+	    if(colour > threshold){
                 brightnessArray[i] = 1;
             } else {
                 brightnessArray[i] = 0;
@@ -257,6 +257,7 @@ int main (){
            // printf("%d", ir_sensor);
             set_motor(1, 0);
             set_motor(2, 0);
+	    connect_to_server(ip, 1024);
             //if(ir_sensor > 1){
                 send_to_server("Please");
                 receive_from_server(message);
