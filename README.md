@@ -1,24 +1,18 @@
 # Thunderbots-AVC2016
 This is the repository for Team Thunderbots in the ENGR101 AVC challenge
 
-
-# URGENT WORK NEEDED!! THIS IS THE TIME TO PANIC
-
 Lead software developer: Arnold 
 
 Software developer and networking: Harry, James
 
 Hardware: Thomas, Tom
 
-Project manager: Thomas
+Project manager: Thomas and James
 
-Contact me at UnfocusedCrane5@gmail.com if you need information on this github repository
+Contact me at UnfocusedCrane5@gmail.com or gotjams1@gmail.com if you need information on this github repository
 
 ###Equipment list-(Thomas/Tom-Work in progress)
-|Parts|Cost|
-|-----|----|
-|     |    |
-|     |    |
+Photos and measurements of parts can be found in the appopriate subfolders regarding hardware.
 
 
 
@@ -31,7 +25,7 @@ Contact me at UnfocusedCrane5@gmail.com if you need information on this github r
 | 3  |To navigate through qadrant 2 and open the network gate|
 | 4  |To Navigate through quadrant 3|
 | 5  |To navigate through quadrant 4|
-
+| 6  |Completion and report.
 
 
 
@@ -95,5 +89,19 @@ meeting is in order to see what work has been done by who.
 * Write code to navigate junctions
 * Write code to make 90degree turns and navigate dead ends
 * Test all code and make sure it is presentable in week 5
+* 
+## Week 4 review:
+* Code written for quadrants 2 and 3, but require more testing 
+* Network code written but requires testing (Lab Time)
+* Minor Hardware issues fixed
 
+## Week 5 goals:
+* Test and run code, validate each quadrant
+* Refining any software issues
+* Testing PID
+* Eliminating any possilbe hardware faults
 
+## Week 5 review:
+* Reviewed software and hardware, making everything up to standard.
+* Completed the trial and passsed with 75.5% (Quadrants 1, 2, and 3, with a partial into quardant 4).
+* Reviewed hardware and was deducted 3% due to minor discrepencies to Hardware design.
