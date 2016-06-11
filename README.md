@@ -89,7 +89,8 @@ meeting is in order to see what work has been done by who.
 * Write code to navigate junctions
 * Write code to make 90degree turns and navigate dead ends
 * Test all code and make sure it is presentable in week 5
-* 
+*
+
 ## Week 4 review:
 * Code written for quadrants 2 and 3, but require more testing 
 * Network code written but requires testing (Lab Time)
