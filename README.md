@@ -31,15 +31,15 @@ Photos and measurements of parts can be found in the appopriate subfolders regar
 
 ### Week one Goals:
 
-~~All- Working on Plan due friday~~
+All- Working on Plan due friday
 
-~~Thomas- Manage team via google docs~~
+Thomas- Manage team via google docs
 
-~~Tom/Thomas- Need to be thinking about the chassis and first draft~~
+Tom/Thomas- Need to be thinking about the chassis and first draft
 
-~~Harry/Arnold- Devaloping code to move robot forward and processing images~~
+Harry/Arnold- Devaloping code to move robot forward and processing images
 
-~~James- Managing github and devaloping code for network gate~~
+James- Managing github and devaloping code for network gate
 
 ### Week 1 review
 * For the first week we achieved all our goals except getting the code for the robot moving forward
@@ -50,8 +50,8 @@ meeting is in order to see what work has been done by who.
 
 ## Week two goals:
 * Harry, Arnold and James produce code for Quadrant one
-* ~~James works on network code~~
-* ~~Thomas and Tom finalise chassis and chassis design~~
+* James works on network code
+* Thomas and Tom finalise chassis and chassis design
 
 ###Week 2 review
 * James has finished network code and is ready to test it
@@ -65,9 +65,9 @@ meeting is in order to see what work has been done by who.
 
 * Harry,Arnold and James Testing all code
 
-* ~~Thomas and Tom FINISH CHASSIS ASAP~~
+* Thomas and Tom FINISH CHASSIS ASAP
 
-* ~~Team meeting~~
+* Team meeting
 
 * Whole team looking at code performing touch-ups and debugging
 ### Week 3 review
